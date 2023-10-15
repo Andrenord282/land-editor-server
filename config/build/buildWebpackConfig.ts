@@ -6,9 +6,7 @@ import { buildDevServer } from "./buildDevServer";
 import { IBuildOptions } from "./types";
 
 const buildWebpackConfig = (options: IBuildOptions): TWebpackConfiguration => {
-    const { PORT, mode, isDev, paths } = options;
-
-    console.log(PORT, mode, isDev, paths);
+    const {  mode, isDev, paths } = options;
 
     return {
         mode,
