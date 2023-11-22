@@ -1,19 +1,20 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "./dist",
+        "baseUrl": "src",
+        "outDir": "build",
         "noImplicitAny": true,
-        "module": "es6",
-        "target": "es5",
-        "moduleResolution": "node",
+        "strict": true,
+        "target": "ES6",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "allowJs": true,
-        "jsx": "react-jsx"
+        "resolveJsonModule": true
     },
+    "include": ["src"],
+    "exclude": ["node_modules"],
     "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS"
-        }
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
     }
 }

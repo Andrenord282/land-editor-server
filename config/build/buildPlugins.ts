@@ -1,16 +1,18 @@
 import webpack, { WebpackPluginInstance } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import { IBuildOptions } from "./types";
 
 const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] => {
     const { paths } = options;
 
     return [
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: paths.html,
-        }),
         new webpack.ProgressPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: paths.folderPaths.entry.storage, to: paths.folderPaths.build.storage },
+                { from: paths.folderPaths.entry.uploads, to: paths.folderPaths.build.uploads },
+            ],
+        }),
     ];
 };
 

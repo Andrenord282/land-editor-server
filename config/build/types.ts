@@ -5,10 +5,20 @@ interface IBuildEnv {
     port: number;
 }
 
+interface IFolderList {
+    storage: string;
+    uploads: string
+}
+interface IFolderPaths {
+    entry: IFolderList;
+    build: IFolderList;
+}
+
 interface IBuildPaths {
     build: string;
+    src: string;
     entry: string;
-    html: string;
+    folderPaths: IFolderPaths;
 }
 
 interface IBuildOptions {
